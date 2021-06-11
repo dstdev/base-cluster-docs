@@ -111,6 +111,25 @@ watchdog = ">=2.0"
 i18n = ["babel (>=2.9.0)"]
 
 [[package]]
+name = "mkdocs-macros-plugin"
+version = "0.5.5"
+description = "Unleash the power of MkDocs with macros and variables"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+jinja2 = "*"
+mkdocs = ">=0.17"
+mkdocs-material = ">=6.2"
+python-dateutil = "*"
+pyyaml = "*"
+termcolor = "*"
+
+[package.extras]
+test = ["mkdocs-macros-test", "mkdocs-material"]
+
+[[package]]
 name = "mkdocs-material"
 version = "7.1.7"
 description = "A Material Design theme for MkDocs"
@@ -213,6 +232,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "termcolor"
+version = "1.1.0"
+description = "ANSII Color formatting for output in terminal."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "watchdog"
 version = "2.1.2"
 description = "Filesystem events monitoring"
@@ -238,7 +265,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2a1fe1dbf0aad4adeefd3977ca3dcb1e93234c2c6c2f7d3e4eeda0553996312a"
+content-hash = "2fd6e57bf25be510a0d3071a60a025b821fbc84d373075cb94766b96fff5ba16"
 
 [metadata.files]
 click = [
@@ -308,6 +335,10 @@ mkdocs = [
     {file = "mkdocs-1.2.1-py3-none-any.whl", hash = "sha256:11141126e5896dd9d279b3e4814eb488e409a0990fb638856255020406a8e2e7"},
     {file = "mkdocs-1.2.1.tar.gz", hash = "sha256:6e0ea175366e3a50d334597b0bc042b8cebd512398cdd3f6f34842d0ef524905"},
 ]
+mkdocs-macros-plugin = [
+    {file = "mkdocs-macros-plugin-0.5.5.tar.gz", hash = "sha256:e0302836397c787505a7b1666cb41b9f4b34d894f816f040e4d738839e76cc73"},
+    {file = "mkdocs_macros_plugin-0.5.5-py3-none-any.whl", hash = "sha256:def642db46bb42f2d7e532954dba4c5c0574079366927847da16e784b7986a9d"},
+]
 mkdocs-material = [
     {file = "mkdocs-material-7.1.7.tar.gz", hash = "sha256:34d57af1e3e68ff4251feb82ced70545d8aa6064861ba76b1a15928399d21879"},
     {file = "mkdocs_material-7.1.7-py2.py3-none-any.whl", hash = "sha256:1725d02efed5d989258fd1620673e78a7171f82028f30c2da8d21e7539150221"},
@@ -374,6 +405,9 @@ pyyaml-env-tag = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+termcolor = [
+    {file = "termcolor-1.1.0.tar.gz", hash = "sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"},
 ]
 watchdog = [
     {file = "watchdog-2.1.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:581e3548159fe7d2a9f377a1fbcb41bdcee46849cca8ab803c7ac2e5e04ec77c"},

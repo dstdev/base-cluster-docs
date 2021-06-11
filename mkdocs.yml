@@ -44,3 +44,6 @@ nav:
   - Current Known Issues: current.md
   - Help: help/index.md
 
+plugins:
+  - search
+  - macros

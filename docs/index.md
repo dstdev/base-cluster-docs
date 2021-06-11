@@ -1,4 +1,4 @@
-# {{cluster_name|uppercase}} Technical Documentation
+# {{cluster_name|upper}} Technical Documentation
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
