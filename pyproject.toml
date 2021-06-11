@@ -1,13 +1,14 @@
 [tool.poetry]
 name = "base-cluster-docs"
 version = "0.1.0"
-description = "Base documentation system for DST"
-authors = ["Andrew Kail <andrew.a.kail@gmail.com>"]
+description = "Base cluster documentation for DST"
+authors = ["Andrew Kail <akail@datainscience.com>"]
+license = "BSD-3"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-myst-parser = "^0.14.0"
-sphinx-material = "^0.0.32"
+mkdocs = "^1.2.1"
+mkdocs-material = "^7.1.7"
 
 [tool.poetry.dev-dependencies]
 

@@ -1,0 +1,248 @@
+site_name: Base document creation
+site_url: https://docs.datainscience.com
+theme:
+  name: material
+  palette:
+    primary: light-blue
+    accent: light-green
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Accounts:
+    - Accounts: accounts/index.md
+    - Passwords: accounts/passwords.md
+  - System:
+    - System: system/index.md
+    - Interconnect: system/interconnect/index.md
+    - Timeline: system/timeline/index.md
+  - Storage Systems:
+    - Storage Systems: filesystems/index.md
+    - Schematic: filesystems/schematic.md
+    - Quotas and Purging: filesystems/quotas.md
+    - Scratch: filesystems/scratch.md
+  - Connecting:
+      - Connecting: connect/index.md
+      - Bright User Portal: connect/bright.md
+      - Remote Grahpical Sessions: connect/rdp.md
+  - Environment:
+     - Environment: environment/index.md
+     - Module Environment: environment/modules.md
+#  - Development:
+#    - Compilers:
+#        - Native Compilers: development/compilers/native.md
+#    - Build Tools:
+#        - Autoconf and Make: development/build-tools/autoconf-make.md
+#        - CMake: development/build-tools/cmake.md
+#        - Spack: development/build-tools/spack.md
+#    - Programming Models:
+#        - Programming Models: development/programming-models/index.md
+#        - MPI:
+#          - MPI: development/programming-models/mpi/index.md
+#          - Cray MPICH: development/programming-models/mpi/mpich.md
+#          - OpenMPI: development/programming-models/mpi/openmpi.md
+#          - Intel MPI: development/programming-models/mpi/intelmpi.md
+#        - OpenMP:
+#          - OpenMP: development/programming-models/openmp/openmp.md
+#          - OpenMP Resources: development/programming-models/openmp/openmp-resources.md
+#          - Tools for OpenMP: development/programming-models/openmp/openmp-tools.md
+#          - False Sharing Detection using VTune Amplifier: development/programming-models/openmp/sharing-vtune.md
+#        - CUDA: development/programming-models/cuda/index.md
+#    - Languages:
+#        - Julia: development/languages/julia.md
+#        - R: development/languages/r.md
+#        - IDL: development/languages/idl.md
+#        - Python:
+#            - Python: development/languages/python/index.md
+#            - Using Python at NERSC: development/languages/python/nersc-python.md
+#            - Parallel Python: development/languages/python/parallel-python.md
+#            - Profiling Python: development/languages/python/profiling-debugging-python.md
+#            - Python on AMD CPUs: development/languages/python/python-amd.md
+#            - Porting Python to Perlmutter GPUs: development/languages/python/perlmutter-prep.md
+#            - FAQ and Troubleshooting: development/languages/python/faq-troubleshooting.md
+#    - Libraries:
+#        - Libraries: development/libraries/index.md
+#        - FFTW: development/libraries/fftw/index.md
+#        - LAPACK: development/libraries/lapack/index.md
+#        - MKL: development/libraries/mkl/index.md
+#        - LibSci: development/libraries/libsci/index.md
+#        - HDF5: development/libraries/hdf5/index.md
+#        - NetCDF: development/libraries/netcdf/index.md
+#        - PETSc: development/libraries/petsc/index.md
+#    - Containers:
+#        - Containers: development/shifter/index.md
+#        - How to use Shifter: development/shifter/how-to-use.md
+#        - Common Issues: development/shifter/issues.md
+#        - Using Intel Compilers with Docker Images: development/shifter/intel.md
+#        - Example Containers: development/shifter/examples.md
+#  - Developer Tools:
+#      - Developer Tools: tools/index.md
+#      - Performance Tools:
+#          - Performance Tools: tools/performance/index.md
+#          - Advisor: tools/performance/advisor/index.md
+#          - APS: tools/performance/aps/index.md
+#          - CrayPat: tools/performance/craypat/index.md
+#          - Darshan: tools/performance/darshan/index.md
+#          - HPCToolkit: tools/performance/hpctoolkit/index.md
+#          - LIKWID: tools/performance/likwid/index.md
+#          - MAP: tools/performance/map/index.md
+#          - Parallelware Trainer: tools/performance/pwtrainer/index.md
+#          - Performance Reports: tools/performance/performancereports/index.md
+#          - Reveal: tools/performance/reveal/index.md
+#          - Roofline Performance Model: tools/performance/roofline/index.md
+#          - Trace Analyzer and Collector: tools/performance/itac/index.md
+#          - VTune: tools/performance/vtune/index.md
+#      - Debug Tools:
+#          - Debug Tools: tools/debug/index.md
+#          - DDT: tools/debug/ddt/index.md
+#          - GDB: tools/debug/gdb/index.md
+#          - gdb4hpc and CCDB: tools/debug/gdb4hpc_ccdb/index.md
+#          - Inspector: tools/debug/inspector/index.md
+#          - Parallelware Analyzer: tools/debug/pwanalyzer/index.md
+#          - STAT and ATP: tools/debug/stat_atp/index.md
+#          - TotalView: tools/debug/totalview/index.md
+#          - Valgrind: tools/debug/valgrind/index.md
+  - Running Jobs:
+    - Running Jobs: jobs/index.md
+    - Queue Policy: jobs/policy.md
+    - Running Jobs on Perlmutter's GPU nodes: jobs/gpus.md
+    - Example Jobs (Cori): jobs/examples/index.md
+    - Best Practices: jobs/best-practices.md
+    - Troubleshooting Slurm: jobs/troubleshooting.md
+#    - Monitoring: jobs/monitoring.md
+#    - Affinity: jobs/affinity/index.md
+    - Interactive: jobs/interactive.md
+    - Reservations: jobs/reservations.md
+#    - Checkpoint/Restart:
+#      - Checkpoint/Restart: development/checkpoint-restart/index.md
+#      - DMTCP: development/checkpoint-restart/dmtcp/index.md
+  - Applications:
+    - Applications: applications/index.md
+#    - AMBER: applications/amber/index.md
+#    - Abinit: applications/abinit/index.md
+#    - BerkeleyGW: applications/berkeleygw/index.md
+#    - CP2K: applications/cp2k/index.md
+#    - CPMD: applications/cpmd/index.md
+#    - E4S:
+#      - E4S: applications/e4s/index.md
+#      - Spack-Gitlab-Pipeline: applications/e4s/spack_gitlab_pipeline.md
+#    - GAMESS: applications/gamess/index.md
+#    - Gromacs: applications/gromacs/index.md
+#    - LAMMPS: applications/lammps/index.md
+#    - Mathematica: applications/mathematica/index.md
+#    - MATLAB:
+#      - MATLAB: applications/matlab/index.md
+#      - MATLAB Compiler: applications/matlab/matlab_compiler.md
+#    - MOLPRO: applications/molpro/index.md
+#    - NAMD: applications/namd/index.md
+#    - NCAR Graphics: applications/ncargraphics/index.md
+#    - NWChem: applications/nwchem/index.md
+#    - SIESTA: applications/siesta/index.md
+#    - ParaView: applications/paraview/index.md
+#    - Q-Chem: applications/qchem/index.md
+#    - Quantum ESPRESSO: applications/quantum-espresso/index.md
+#    - VASP: applications/vasp/index.md
+#    - VisIt: applications/visit/index.md
+#    - WIEN2k: applications/wien2k/index.md
+#    - Wannier90: applications/wannier90/index.md
+#  - Analytics:
+#      - Analytics: analytics/analytics.md
+#      - Dask: analytics/dask.md
+#      - RStudio: services/rstudio.md
+#      - Spark: analytics/spark.md
+#  - Machine Learning:
+#      - Machine Learning: machinelearning/index.md
+#      - TensorFlow: machinelearning/tensorflow.md
+#      - PyTorch: machinelearning/pytorch.md
+#      - TensorBoard: machinelearning/tensorboard.md
+#      - Benchmarks: machinelearning/benchmarks.md
+#      - Distributed training: machinelearning/distributed-training/index.md
+#      - Hyperparameter optimization: machinelearning/hpo.md
+#      - Science use-cases:
+#          Science use-cases: machinelearning/science-use-cases/index.md
+#          HEP CNN: machinelearning/science-use-cases/hep-cnn.md
+#  - Performance:
+#    - Perlmutter Readiness: performance/readiness.md
+#    - Getting started on KNL: performance/knl/getting-started.md
+#    - Vectorization: performance/vectorization.md
+#    - Parallelism: performance/parallelism.md
+#    - Memory Bandwidth: performance/mem_bw.md
+#    - Arithmetic Intensity: performance/arithmetic_intensity.md
+#    - Compiler Diagnostics: performance/compiler-diagnostics.md
+#    - I/O:
+#        - I/O: performance/io/index.md
+#        - I/O libraries: performance/io/library/index.md
+#        - Lustre: performance/io/lustre/index.md
+#        - KNL: performance/io/knl/index.md
+#    - Portability: performance/portability.md
+#    - Variability: performance/variability.md
+#    - Network: performance/network.md
+#    - Case Studies:      
+#        - GPU Case Studies:            
+#            - AMReX GPU Case Study: performance/case-studies/amrex-gpu/index.md
+#            - DESI GPU Case Study: performance/case-studies/desi/index.md
+#            - MetaHipMer GPU Case Study: performance/case-studies/metahipmer/index.md
+#            - Tomopy GPU Case Study: performance/case-studies/tomopy/index.md
+#            - SNAP GPU Case Study: performance/case-studies/snap/index.md
+#            - C++ ML Interface: performance/case-studies/CPP_2_Py/index.md
+#        - KNL Case Studies:
+#            - AMReX KNL Case Study: performance/case-studies/amrex/index.md
+#            - BerkeleyGW KNL Case Study: performance/case-studies/berkeleygw/index.md
+#            - Chombo-Crunch KNL Case Study: performance/case-studies/chombo-crunch/index.md
+#            - EMGeo KNL Case Study: performance/case-studies/emgeo/index.md
+#            - HMMER3 KNL Case Study: performance/case-studies/hmmer3/index.md
+#            - MFDn KNL Case Study: performance/case-studies/mfdn/index.md
+#            - QPhiX KNL Case Study: performance/case-studies/qphix/index.md
+#            - Quantum ESPRESSO KNL Case Study: performance/case-studies/quantum-espresso/index.md
+#            - WARP KNL Case Study: performance/case-studies/warp/index.md
+#            - XGC1 KNL Case Study: performance/case-studies/xgc1/index.md
+#    - KNL Cache Mode: performance/knl/cache-mode.md
+#  - Services:
+#      - Services: services/index.md
+#      - Spin:
+#          - Spin: services/spin/index.md
+#          - Rancher 1:
+#              - Getting Started with Rancher 1:
+#                  - Getting Started with Spin (Rancher 1): services/spin/rancher1/getting_started/index.md
+#                  - Spin (Rancher 1) Lesson 1: services/spin/rancher1/getting_started/lesson-1.md
+#                  - Spin (Rancher 1) Lesson 2: services/spin/rancher1/getting_started/lesson-2.md
+#                  - Spin (Rancher 1) Lesson 3: services/spin/rancher1/getting_started/lesson-3.md
+#              - Cheat Sheet: services/spin/rancher1/cheatsheet.md
+#              - Reference Guide: services/spin/rancher1/reference_guide.md
+#          - Rancher 2:
+#              - Getting Started with Rancher 2: services/spin/rancher2/getting_started.md
+#              - Migration Guide: services/spin/rancher2/migration.md
+#              - Concepts and Terminology: services/spin/rancher2/concepts.md
+#              - CLI Guide: services/spin/rancher2/cli.md
+#              - Case Studies:
+#                - Managing Spin workloads with Helm: services/spin/rancher2/case_studies/helm-with-spin.md
+#                - Migrating a web server to Rancher 2: services/spin/rancher2/case_studies/httpd_r1_to_r2.md
+#      - Science Gateways: services/science-gateways.md
+#      - NEWT: services/newt.md
+#      - Jupyter: services/jupyter.md
+#      - Globus: services/globus.md
+#      - CDash:
+#        - CDash: services/cdash/index.md
+#        - CTest/CDash with CMake: services/cdash/with_cmake.md
+#        - CTest/CDash without CMake: services/cdash/without_cmake.md
+#      - CVMFS: services/cvmfs.md
+#      - Databases: services/databases.md
+#      - GridFTP: services/gridftp.md
+#      - Scp: services/scp.md
+#      - Bbcp: services/bbcp.md
+#  - Science Partners:
+#    - Joint Genome Institute (JGI):
+#      - JGI Resources: science-partners/jgi/index.md
+#      - JGI Systems:
+#        - JGI Systems: science-partners/jgi/systems.md
+#        - Cori Genepool: science-partners/jgi/cori-genepool.md
+#        - Cori ExVivo: science-partners/jgi/cori-exvivo.md
+#      - JGI Filesystems: science-partners/jgi/filesystems.md
+#      - JGI Software: science-partners/jgi/software.md
+#      - JGI Training and Tutorials: science-partners/jgi/training.md
+#      - JGI Databases and Web Services: science-partners/jgi/services.md
+#    - Best Practices for Experimental Science: science-partners/bestpractices-eod.md
+  - Acronyms: help/acronyms.md
+  - Current Known Issues: current.md
+  - Help: help/index.md
+

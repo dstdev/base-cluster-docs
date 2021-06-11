@@ -1,0 +1,46 @@
+site_name: Base document creation
+site_url: https://docs.datainscience.com
+theme:
+  name: material
+  palette:
+    primary: light-blue
+    accent: light-green
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Accounts:
+    - Accounts: accounts/index.md
+    - Passwords: accounts/passwords.md
+  - System:
+    - System: system/index.md
+    - Interconnect: system/interconnect/index.md
+    - Timeline: system/timeline/index.md
+  - Storage Systems:
+    - Storage Systems: filesystems/index.md
+    - Schematic: filesystems/schematic.md
+    - Quotas and Purging: filesystems/quotas.md
+    - Scratch: filesystems/scratch.md
+  - Connecting:
+      - Connecting: connect/index.md
+      - Bright User Portal: connect/bright.md
+      - Remote Grahpical Sessions: connect/rdp.md
+  - Environment:
+     - Environment: environment/index.md
+     - Module Environment: environment/modules.md
+  - Running Jobs:
+    - Running Jobs: jobs/index.md
+    - Queue Policy: jobs/policy.md
+    - Running Jobs on Perlmutter's GPU nodes: jobs/gpus.md
+    - Example Jobs (Cori): jobs/examples/index.md
+    - Best Practices: jobs/best-practices.md
+    - Troubleshooting Slurm: jobs/troubleshooting.md
+    - Monitoring: jobs/monitoring.md
+    - Interactive: jobs/interactive.md
+    - Reservations: jobs/reservations.md
+  - Applications:
+    - Applications: applications/index.md
+  - Acronyms: help/acronyms.md
+  - Current Known Issues: current.md
+  - Help: help/index.md
+
