@@ -39,6 +39,8 @@ cd site
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
+Now you can go to your web browser to http://localhost:8000 and the docs should be there.
+
 ### Poetry
 
 ```
