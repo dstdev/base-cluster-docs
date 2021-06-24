@@ -1,17 +1,13 @@
-# {{cluster_name|upper}} Technical Documentation
+# {{cluster_name|capitalize}} Technical Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+## DST web pages
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* [DST Home page](https://datainscience.com) - center news and information
+* [Help Portal](https://zendesk.datainscience.com) - open tickets, make requests
 
-## Project layout
+## Popular documentation pages
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* [Job Queue Policy](jobs/policy.md) - charge factors, run limits, submit limits
+* [Example Jobs](jobs/examples/index.md) - curated example job scripts
+* [Jobs overview](jobs/index.md) - Slurm commands, job script basics, submitting, updating jobs

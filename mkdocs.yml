@@ -3,11 +3,12 @@ site_url: https://docs.datainscience.com
 theme:
   name: material
   palette:
-    primary: light-blue
+    primary: grey
     accent: light-green
 
 nav:
   - Home: index.md
+
   - Getting Started: getting-started.md
   - Accounts:
     - Accounts: accounts/index.md
@@ -38,12 +39,28 @@ nav:
     - Monitoring: jobs/monitoring.md
     - Interactive: jobs/interactive.md
     - Reservations: jobs/reservations.md
+    - GPUs: jobs/gpus/index.md
+    - Workflows:
+      - Workflows: jobs/workflow-tools.md
+      - GNU-Parallel: jobs/workflow/gnuparallel.md
   - Applications:
     - Applications: applications/index.md
   - Acronyms: help/acronyms.md
   - Current Known Issues: current.md
   - Help: help/index.md
 
+markdown_extensions:
+  - admonition
+
+# tags can be
 plugins:
   - search
   - macros
+  #- tags
+
+extra:
+  cluster_name: Aries
+  org_name: Advanced Computing
+  support_email: something
+  help_portal: zendesk
+  login_node: aries.ds.slu.edu

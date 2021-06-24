@@ -13,7 +13,13 @@ Base template for cluster documentation using sphyinx
 ```
 git clone git@github.com:dstdev/base-cluster-docs.git
 cd base-cluster-docs
+
+# poetry was used to manage the package dependencies
 poetry install
+
+# pip version
+pip install -r requirements.txt
+
 mkdocs build
 ```
 
@@ -25,8 +31,24 @@ MK Docs provides a development server which can be used to build and serve local
 mkdocs serve
 ```
 
+If the macro's plugin is enabled, real-time building is unavailable and has to be rebuilt each time a change is made manually.  You can then serve the files directly using the python simple http server.
+
+```
+mkdocs build
+cd site
+python -m http.server 8000 --bind 127.0.0.1
+```
+
+### Poetry
+
+```
+#Generate requirements file
+poetry export -f requirements.txt > requirements.txt
+```
+
+
 # Reference
 * [Markdown Syntax](https://spec.commonmark.org/)
-* [Myst Parser](https://myst-parser.readthedocs.io/en/latest)
-* [Theme](https://sphinx-themes.org/sample-sites/sphinx-material/)
+* [MKDocs](https://www.mkdocs.org/)
+* [MKDocs Material](https://squidfunk.github.io/mkdocs-material/)
 * [NERSC](https://gitlab.com/NERSC/nersc.gitlab.io/-/blob/main/docs/services/bbcp.md)
