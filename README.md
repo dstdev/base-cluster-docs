@@ -48,7 +48,6 @@ Now you can go to your web browser to http://localhost:8000 and the docs should 
 poetry export -f requirements.txt > requirements.txt
 ```
 
-
 # Reference
 * [Markdown Syntax](https://spec.commonmark.org/)
 * [MKDocs](https://www.mkdocs.org/)
