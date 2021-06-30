@@ -721,11 +721,3 @@ all of the tasks to run to completion.
 
 [comment]: <> (### GNU parallel)
 
-## Jupyter access
-
-GPU nodes may also be accessed using NERSC's
-[JupyterHub](https://jupyter.nersc.gov/) service, which is documented
-[here](../../services/jupyter.md). After logging into JuypterHub
-using Iris credentials, one may start a Jupyter notebook which will
-have access to a GPU by clicking the "Start" button under the column
-labeled "Shared GPU Node."

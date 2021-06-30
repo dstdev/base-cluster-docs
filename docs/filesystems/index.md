@@ -50,17 +50,4 @@ storage of data that is not frequently accessed.
 
 ## Local storage
 
-### Scratch
 
-[Cori](../systems/cori/index.md) has a dedicated, large, local,
-parallel [scratch file system](cori-scratch.md) based on Lustre. The
-scratch file system is intended for temporary uses such as storage of
-checkpoints or application input and output.
-
-### [Burst Buffer](cori-burst-buffer.md)
-
-Cori's [Burst Buffer](cori-burst-buffer.md) provides very
-high performance I/O on a per-job or short-term basis. It is
-particularly useful for codes that are I/O-bound, for example, codes
-that produce large checkpoint files, or that have small or random I/O
-reads/writes.

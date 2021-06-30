@@ -21,11 +21,6 @@ and global project) in general.
 
 ## Specify account
 
-For users who are members of multiple NERSC repositories charges are
-made to the default account, as set in [Iris](https://iris.nersc.gov),
-unless the `#SBATCH --account=<NERSC repository>` flag has been
-set. It is good practice to always set the account flag to ensure the
-appropriate allocation is charged.
 
 ## Time Limits
 

@@ -2,8 +2,6 @@
 
 ??? "How do I find which Slurm accounts I am part of?"    
      
-    You can use the `iris` command line interface to [iris](https://iris.nersc.gov/) to retrieve user details. 
-    The first column **Project** is all the Slurm accounts a user is associated with.  
    
     In this example, the current user is part of two accounts `nstaff` and `m3503`.  
     
@@ -17,12 +15,6 @@
 
 ??? "What is my default Slurm account?"
     
-    You can find the default user account by logging into https://iris.nersc.gov and navigate to  **CPU** tab, 
-    you will see a column `Default` that shows your default Slurm account. In this example, the user
-    default account is `nstaff` which means that user job will be charged to `nstaff` account even if they do
-    not specify `#SBATCH -A` in their job script.
-    
-    ![default_slurm_account](images/iris_default_slurm_account.png)
      
 ??? "My job will terminate because it will exceed queue run time limit, what can I do?"
     
@@ -75,16 +67,6 @@
                 
 ??? "Unable to submit jobs to premium queue?"
 
-    You need to login to https://iris.nersc.gov and confirm your account has access to `premium` queue. If you are a PI
-    please see [Enabling the premium QOS](../iris/iris-for-pis/#enabling-the-premium-qos-available-from-ay21) and
-    grant your colleague access to `premium` queue. If you are not a PI, please contact your PI to add your 
-    username to queue. This change will take up to an hour to propagate to our systems. 
-    
-    Shown below is a snapshot from iris to enable premium queue access. Please note this is granted **per project** 
-    (`#SBATCH -A <account>`).
-    
-    ![iris premium access](images/iris_premium_access.png) 
-    
 ??? "Why is my job marked as `InvalidQOS`?"
 
     This indicates you have specified incorrect qos name `#SBATCH -q <QOS>` in your job-script. Please
@@ -111,33 +93,6 @@
     
 ## Cannot Submit Jobs
 
-If you are unable to submit jobs we recommend you check the following
-
-- Check your job script for error (invalid qos name, missing time-limit, invalid node count or cpu count, etc...)
-- Check the [MOTD](https://www.nersc.gov/live-status/motd/) and see if Cori is online. See https://my.nersc.gov/
-- Check [NERSC outage calendar](https://my.nersc.gov/outagecal-cs.php) for scheduled outage
-- Check [Queue Policy](policy.md) to ensure your job complies with Slurm policies  
-- Check if you have `esslurm` module loaded, this exposes different Slurm binaries. Unloading this module will solve many of 
-  your errors.
-    - If you are submitting jobs to `xfer`, `compile`, `bigmem` queue, check that you have `esslurm` module loaded  
-    - For any other cori jobs, ensure that the `esslurm` module is not loaded
-- **If you are having issues with Cori GPU jobs then please see 
-  [Cori GPU Documentation](https://docs-dev.nersc.gov/cgpu/access/)**.    
-- Check your startup configuration files `~/.bashrc` and `~/.bashrc.ext` for any user environment `PATH`, `LD_LIBRARY_PATH`, 
-  modules, or aliases that may impact your shell.  
-- Check if you are charging to correct account (`-A <Account>`). If you are not sure of your project code you can run `iris` or 
-  login to https://iris.nersc.gov/
-- Check if you have negative balance for your project, if so please contact your project PI. You can run 
-  `iris` to see your project details.
-- Check your file system quota using `myquota`, if your account exceeds quota limit you won't be able to submit jobs
-
-If all else fails please submit a ticket at http://help.nersc.gov/ with the following details:
-
- - Job Script and/or Slurm command
- - Output of `module list`
- - Output of warning/error messages 
- - Time when command was run (use `date` command)
- - Add any attachments necessary to troubleshoot issue 
 
 ## Common Errors With Jobs
 
@@ -269,64 +224,6 @@ and their possible causes are shown in the following table.
 
 -   Error message:
 
-    ```
-    sbatch: error: The overrun logical queue requires an lower balance than the estimated job cost. Job cost estimated at XX.XX NERSC-Hours, your balance is YYYYYY.YY NERSC-Hours (Repo: YYYYYYY.YY NERSC-Hours). Cannot proceed, please see https://docs.nersc.gov/jobs/policy/ for your options to run this job.
-    sbatch: error: Batch job submission failed: Unspecified error
-    ```
-
-    Possible causes/remedies:
-
-    You submitted the job to the `overrun` partition directly.  When
-    you submit a job with a normal qos (e.g., `regular`, `debug`,
-    etc.), requesting more NERSC-Hours than your NERSC project
-    balance, it will be automatically routed to the `overrun` queue.
-
--   Error message:
-
-    ```
-    sbatch: error: No available NERSC-hour balance information for user xxxxx, account yyyyy. Cannot proceed.
-    sbatch: error: Batch job submission failed: Unspecified error
-    ```
-
-    Possible causes/remedies:
-
-    You submitted the job using a project that you are not allowed to
-    use.  Login in to [Iris](https://iris.nersc.gov) to see which
-    NERSC project you can use.
-
--   Error message:
-
-    ```
-    sbatch: error: Batch job submission failed: Unable to contact Slurm controller (connect failure)
-    ```
-
-    Possible causes/remedies:
-
-    There may be an issue with Slurm. If the error is still seen after
-    a few minutes, report to NERSC.
-
--   Error message:
-
-    ```
-    sbatch: error: Job cost estimated at XXXXXXXX.XX NERSC-Hours, your balance is XXXXXXX.XX NERSC-Hours (Repo: XXXXXXXX.XX NERSC-Hours). Cannot proceed, please see https://docs.nersc.gov/jobs/policy/ for your options to run this job.
-    sbatch: error: Job submit/allocate failed: Unspecified error
-    ```
-
-    Possible causes/remedies:
-
-    Your remaining NERSC project balance is not big enough to run the
-    job.
-
--   Error message:
-
-    ```
-    srun: error: Unable to create step for job XXXXXXXX: More processors requested than permitted
-    ```
-
-    Possible causes/remedies:
-
-    Your `srun` command required more logical cores than available.
-    Please check the values for the `-n`, `-c`, etc.
 
 ### Runtime errors
 
@@ -374,232 +271,6 @@ and their possible causes are shown in the following table.
 [comment]: <> (    Possible causes/remedies:)
 [comment]: <> ()
 
--   Error message:
 
-    ```
-    srun: fatal: Can not execute vasp_gam
-    /var/spool/slurmd/job15816716/slurm_script: line 17: 34559
-    Aborted                 srun -n 32 -c8 --cpu-bind=cores vasp_gam
-    ```
 
-    Possible causes/remedies:
 
-    The user does not belong to a VASP group. The user needs
-    to provide VASP license info following the instructions in
-    [here](../applications/vasp/index.md#access).
-
--   Error message:
-
-    ```
-    cori$ sqs
-    JOBID     ST  ...  REASON
-    XXXXXXXX  PD  ...  Nodes required*
-    ...
-    ```
-
-    or
-
-    ```
-    cori$ scontrol show job XXXXXXXX
-    ...
-    JobState=PENDING Reason=Nodes_required_for_job_are_DOWN,_DRAINED_or_reserved_for_jobs_in_higher_priority_partitions Dependency=(null)
-    ...
-    ```
-
-    Possible causes/remedies:
-
-    The job was tentatively scheduled to start as a backfill job.
-    But some of the assigned nodes are now down, drained or re-assigned
-    to a higher priority job. Wait until Slurm reschedules the job.
-
--   Error message:
-
-    ```
-    srun: Job XXXXXXXX step creation temporarily disabled, retrying
-    ```
-
-    Possible causes/remedies:
-
-    This often happens when there are many `srun` commands in a
-    batch job and compute nodes are not fully completed from the
-    last `srun` before the next one starts. Usually the next job
-    step starts eventually.
-
-    However, if you observe a significant delay with starting a
-    `srun` command, the problem may have to be examined by NERSC
-    staff.  In that case, please report the problem to us. Length
-    of the delay, however, can depend on resources (memory, threads,
-    I/O, etc.) involved in the last job step.
-
--   Error message:
-
-    ```
-    srun: error: Unable to create step for job XXXXXXXX: Job/step already completing or completed
-    ```
-
-    which appears with or without this message:
-
-    ```
-    srun: Job XXXXXXXX step creation temporarily disabled, retrying
-    ```
-
-    Possible causes/remedies:
-
-    This may be caused by a system issue. Please report to NERSC.
-
--   Error message:
-
-    ```
-    Tue Sep 18 20:13:26 2018: [PE_5]:inet_listen_socket_setup:inet_setup_listen_socket: bind failed port 63725 listen_sock = 4 Address already in use
-    Tue Sep 18 20:13:26 2018: [PE_5]:_pmi_inet_listen_socket_setup:socket setup failed
-    Tue Sep 18 20:13:26 2018: [PE_5]:_pmi_init:_pmi_inet_listen_socket_setup (full) returned -1
-    ...
-    ```
-
-    Possible causes/remedies:
-
-    Typically this error indicates that multiple applications have
-    been launched on the same node, and both are using the same PMI
-    (Process Management Interface, which supports launching and
-    managing the processes that make up the execution of a parallel
-    program; see the `intro_pmi` man page for more info) control
-    port number. When running multiple applications per node, it
-    is the launcher's responsibility to provide PMI with a new
-    (available) port nuber by setting the `PMI_CONTROL_PORT` env
-    variable. Slurm typically does this.
-
-    You can try either of the following approaches to suppress the
-    PMI errors because your code runs on a single node and does not
-    communicate between nodes:
-
-    -   Recompile your code with the `craype-network-aries` module
-	unloaded, then the PMI library will not be linked into your
-	code:
-
-        ```shell
-        cori$ module swap craype-network-aries craype-network-none
-        ```
-
-    -   Set the fowllowing two env variables:
-
-        ```shell
-        cori$ export PMI_NO_FORK=1
-        cori$ export PMI_NO_PREINITIALIZE=1
-        ```
-
--   Error message:
-
-    ```
-    /some/path/ ./a.out error while loading shared libraries: /opt/gcc/7.3.0/snos/lib64/libgomp.so.1: cannot read file data:
-    Input/output error
-    ...
-    ```
-
-    Possible causes/remedies:
-
-    A possible cause is that the `LD_LIBRARY_PATH` environment
-    varialbe has been modified.  Since `libgomp.so.1` is part of
-    the Intel libraries, you can try unloading the `gcc` module
-    with `module unload gcc` if it is loaded, or reloading the
-    `intel` module with `module load intel`.
-
-[comment]: <> (-   Error message:)
-[comment]: <> ()
-[comment]: <> (    ```)
-[comment]: <> (    sacct: error: slurm_persist_conn_open: failed to send persistent connection init message to corique01:6819)
-[comment]: <> (    sacct: error: slurmdbd: Getting response to message type 1444)
-[comment]: <> (    sacct: error: slurmdbd: DBD_GET_JOBS_COND failure: Unspecified error)
-[comment]: <> (    ```)
-[comment]: <> ()
-[comment]: <> (    or)
-[comment]: <> ()
-[comment]: <> (    ```)
-[comment]: <> (    sacct: error: slurm_persist_conn_open_without_init: failed to open persistent connection to corique01:6819: Connection refused)
-[comment]: <> (    ```)
-[comment]: <> ()
-[comment]: <> (    Possible causes/remedies:)
-[comment]: <> ()
-
--   Error message:
-
-    ```
-    slurmstepd: error: Detected zonesort setup failure: Could not open job cpuset (########.#)
-    ```
-
-    Possible causes/remedies:
-
-    KNL's MCDRAM cache is prone to cache thrashing because it uses
-    direct mapped caching, which can result in slow code performance.
-    To alleviate this possibility, the system's Node Health Check
-    tool runs the 'zonesort' kernel module on compute nodes. For
-    more info, please see [KNL Cache
-    Mode](../performance/knl/cache-mode.md). Note that the zonesort
-    module is also run on Haswell nodes although performance
-    implication may not be as significant since direct mapped caching
-    is not used.
-
-    The error message means that running the zonesort kernel failed
-    for some reason. The end result is that your code may have run
-    less optimally. Other than that, the message is usually harmless.
-    If your job failed because the application ran slowly, please
-    resubmit the job.
-
--   Error message:
-
-    ```
-    slurmstepd: error: _is_a_lwp: open() /proc/XXXXX/status failed: No such file or directory
-    ```
-
-    Possible causes/remedies:
-
-    `_is_a_lwp` is a function called internally for Slurm job
-    accounting.  The message indicates a rare error situation with
-    a function call. But the error shouldn't affect anything in the
-    user job. Please ignore the message.
-
--   Error message:
-
-    ```
-    Unable to open file (unable to lock file, errno = 524, error message = 'Unknown error 524')
-    ```
-
-    Possible causes/remedies:
-
-    You are running a program built against the Cray versions of HDF5
-    or NetCDF on a NGF file system (CFS, HOME, etc).
-    A fix is available in the following pages:
-
-    * [HDF5 library](../../development/libraries/hdf5/)
-    * [NetCDF library](../../development/libraries/netcdf/)
-
--   Error message when copying files to Burst Buffer:
-
-    ```
-    cp: error writing '/var/opt/cray/dws/mounts/batch/YourPersistentReservation/a_file': Read-only file system
-    ```
-
-    or in a Python program:
-    
-    ```
-    Traceback (most recent call last):
-    ...
-    OSError: [Errno 30] Read-only file system
-    ```
-
-    Too many writes have been performed in your Burst Buffer
-    allocation, which triggered the write protection of the
-    underlying SSDs and made the file system read-only, to avoid
-    drive blocks to wear out too quickly.
-
-    If you are using a Burst Buffer allocation and need to
-    access the same files from multiple jobs, consider using a
-    Persistent Reservation (PR): no backup is performed of data on
-    Burst Buffer, so always stage-out/copy the important files.
-    See the related page on
-    [Burst Buffer](../filesystems/cori-burst-buffer.md).
-
-    The solution is to either wait some hours for the SSDs to
-    "cooldown", or request a new and bigger PR (remember that
-    resources are limited and other users may also need storage
-    space).    
-    

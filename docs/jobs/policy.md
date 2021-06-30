@@ -66,8 +66,6 @@ discount.
 [^hsw-reg]:
 Batch jobs submitted to the Haswell partition requesting more than 512 nodes
 must go through a
-[compute reservation](https://nersc.servicenowservices.com/sp/?id=sc_cat_item&sys_id=1c2ac48f6f8cd2008ca9d15eae3ee4a5&sysparm_category=e15706fc0a0a0aa7007fc21e1ab70c2f).
-
 [^shared]:
 Shared jobs are only charged for the fraction of the node resources used.
 
@@ -225,9 +223,6 @@ without these flags will be automatically rejected by the batch system.
 
 #### Realtime
 
-The "realtime" QOS is only available via [special request](https://nersc.servicenowservices.com/catalog_home.do?sysparm_view=catalog_default).
-It is intended for jobs that are connected with an external realtime
-component that _requires_ on-demand processing.
 
 #### Compile
 
@@ -245,11 +240,6 @@ the [Computer Usage
 Charging](../../policies/charging-policy/#computer-usage-charging)
 section of the NERSC usage charging policy.
 
-!!! warning
-	For users who are members of multiple NERSC projects,
-	charges are made to the default project, as set
-	in [Iris](https://iris.nersc.gov), unless the `#SBATCH
-	--account=<NERSC project>` flag has been set.
 
 !!! note
     Jobs are charged only for the actual walltime used. That is, if a

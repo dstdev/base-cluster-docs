@@ -4,11 +4,6 @@
     This page is currently under active development. Check
     back soon for more content.
 
-NERSC uses [Slurm](https://slurm.schedmd.com) for cluster/resource
-management and job scheduling. Slurm is responsible for allocating
-resources to users, providing a framework for starting, executing and
-monitoring work on allocated resources and scheduling work for future
-execution.
 
 ## Additional Resources
 
@@ -24,21 +19,11 @@ to a user for an amount of time. Jobs can be interactive or batch
 (e.g., a script) scheduled for later execution.
 
 !!! tip
-    NERSC provides an extensive set of [example job scripts](examples/index.md)
 
 Once a job is assigned a set of nodes, the user is able to initiate
 parallel work in the form of job steps (sets of tasks) in any
 configuration within the allocation.
 
-When you login to a NERSC system you land on a [login
-node](../policies/login-nodes.md). Login nodes are for editing,
-compiling, preparing jobs. They are not for running jobs. From the
-login node you can interact with Slurm to submit job scripts or start
-interactive jobs.
-
-NERSC's environment is configured to support diverse workload
-including high-throughput serial tasks, full system capability
-simulations and complex workflows.
 
 ## Submitting jobs
 
@@ -87,9 +72,6 @@ then a default may be applied.
     It is good practice to always set the account option
     (`--account=<NERSC Project>`).
 
-    Information about available NERSC projects is avaliable on
-    [iris](https://iris.nersc.gov) and via the `iris` command on NERSC
-    systems.
 
 The full list of directives is documented in the man pages for the
 `sbatch` command (see `man sbatch`). Each option can be specified
@@ -214,9 +196,6 @@ particular job. In our experience, we find that determining the
 correct settings for number of CPUs per task, [process
 affinity](affinity/index.md), etc. can be tricky. Consequently, we
 recommend using the [Job Script
-Generator](https://my.nersc.gov/script_generator.php) to generate the
-correct `#SBATCH` directives, `srun` arguments, and process affinity
-settings for you.
 
 The job script generator will provide the correct runtime arguments
 for your job, but may not adequately demonstrate a way to run jobs
@@ -246,11 +225,7 @@ If there are issues with job submission check:
 * all required options are set
 * selected options match [queue policy](policy.md)
 * appropriate [modules](../environment/modules.md) are loaded
-* your account balance ([iris](https://iris.nersc.gov))
 * your compliance with [quota](#quota-enforcement)
-* [NERSC Message of the
-  Day(MOTD)](https://www.nersc.gov/live-status/motd/) for any current
-  issues
 
 ## Available memory for applications on compute nodes
 
@@ -274,36 +249,6 @@ archive data as needed.
 
 ## Queue Wait Times
 
-Queue [wait times](https://my.nersc.gov/queuewaittimes.php) for past
-jobs can be a useful guide in estimating wait times of current
-jobs. The wait time depends on the quality of service (QOS), requested
-resources (nodes, time, filesystems, etc), jobs in the queue, your
-other jobs and other jobs from the same NERSC project.
-
-For active jobs in queue, you can monitor start time by using `squeue
---start` option.  In example below job `1448935` can't start because
-user has exceeded max jobs per QOS limit.  Slurm will report `N/A` for
-start time estimation if the job has not been scheduled with reserved
-nodes.  You can periodically check the job to see if there is a job
-estimate.
-
-```console
-$ squeue --start -j 1448935
-             JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)
-           1448935    bigmem   dummy     elvis PD                 N/A      1 (null)               (QOSMaxJobsPerUserLimit)
-```
-
-!!! tip
-    `sqs` is an alias to `squeue` with predefined helpful options,
-    including `--start`.
-
-In most, cases jobs will be pending because of priority, you will see
-a `Reason=Priority` is in the output as shown below.
-
-For more details on job state and reasons codes see:
-
-- https://slurm.schedmd.com/squeue.html#lbAF
-- https://slurm.schedmd.com/squeue.html#lbAG
 
 ## Further reading about jobs
 

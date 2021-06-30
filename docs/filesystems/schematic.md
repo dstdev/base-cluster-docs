@@ -1,8 +1,5 @@
 # File System Schematics
 
-## Cori Scratch
-
-![Cori Scratch](cori_scratch.png)
 
 ### Abbreviations
 
@@ -14,6 +11,3 @@
 | LNET|Lustre network router|
 | MDS| Metadata Server, manage file operation, e.g., create new file, write to shared file|
 
-## HPSS Archive
-
-![HPSS Archive](HPSS_Archive_Architecture_20201207.png)

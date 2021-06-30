@@ -6,39 +6,6 @@ prohibitive and automation is needed. Workflow technologies can improve the
 productivity and efficiency of data-centric science by orchestrating and
 automating these steps.
 
-!!! Note "Let us help you find the right tool!"
-    Do you have questions about how to choose the right workflow tool for your
-    application? Are you unsure about which tools will work on NERSC systems?
-    Please open a ticket at [help.nersc.gov](https://help.nersc.gov), explain you would
-    like help choosing a workflow tool, and your ticket will be routed to experts
-    who can help you.
-
-A NERSC working group review and refresh of this content is currently in
-progress; we are actively updating these docs pages with new information as we
-evaluate new tools. In the meantime we request the following of users
-considering workflow management solutions:
-
-* Before you begin developing a codebase which requires a particular workflow
-  manager, please contact NERSC consultants via [help.nersc.gov](https://help.nersc.gov)
-  to confirm it can be effectively
-  used at NERSC. Some tools have infrastructure needs or operate in a manner
-  which is fundamentally incompatible with NERSC systems and we'd like to
-  protect users from wasting effort if we can.
-* Please do not write your own workflow manager. More than 200 such solutions
-  already exist and almost certainly one of them can be found which will
-  fit your needs and our infrastructure.
-* Please don't do this!!!
-
-```
-For i=1=10,000
-   srun -n 1 a.out
-```
-
-Issuing many `srun`s in a short period of time really stresses our
-SLURM scheduler. It will ruin not only your own job performance but
-also the performance for all other NERSC users, too. If this is what
-you need for your application, please consider a workflow tool. This
-is what they were designed to do!
 
 ## GNU Parallel
 
