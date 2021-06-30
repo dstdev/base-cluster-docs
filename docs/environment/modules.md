@@ -1,16 +1,9 @@
 # Modules Environment
 
-NERSC uses the [module](http://modules.readthedocs.io) utility to
-manage nearly all software. There are two advantages of the module
-approach:
 
-1. NERSC can provide many different versions and/or installations of a
-   single software package on a given machine, including a default
-   version as well as several older and newer version.
-2. Users can easily switch to different versions or installations
-   without having to explicitly specify different paths. With modules,
-   the `MANPATH` and related environment variables are automatically
-   managed.
+
+
+
 
 ## What is module
 
@@ -43,7 +36,6 @@ module ()
 General usage:
 
 ```console
-nersc$ module [ switches ] [ subcommand ] [subcommand-args ]
 ```
 
 Further reading:
@@ -151,56 +143,11 @@ module help <module-name>
 To see a condensed list of module you can use `module -t` and use this with `list` or `avail`
 
 ```
-$ module -t list
-Currently Loaded Modulefiles:
-modules/3.2.11.4
-nsg/1.2.0
-altd/2.0
-darshan/3.1.7
-intel/19.0.3.199
-craype-network-aries
-craype/2.6.2
-cray-libsci/19.06.1
-udreg/2.3.2-7.0.1.1_3.29__g8175d3d.ari
-ugni/6.0.14.0-7.0.1.1_7.32__ge78e5b0.ari
-pmi/5.0.14
-dmapp/7.1.1-7.0.1.1_4.43__g38cf134.ari
-gni-headers/5.0.12.0-7.0.1.1_6.27__g3b1768f.ari
-xpmem/2.2.20-7.0.1.1_4.8__g0475745.ari
-job/2.2.4-7.0.1.1_3.34__g36b56f4.ari
-dvs/2.12_2.2.156-7.0.1.1_8.6__g5aab709e
-alps/6.6.57-7.0.1.1_5.10__g1b735148.ari
-rca/2.2.20-7.0.1.1_4.42__g8e3fb5b.ari
-atp/2.1.3
-PrgEnv-intel/6.0.5
-craype-haswell
-cray-mpich/7.7.10
-craype-hugepages2M
 ```
 
-At NERSC three Cray `PrgEnv-` modules are available: ``PrgEnv-cray``, ``PrgEnv-gnu``
-and ``PrgEnv-intel`` (the default). These modules provide respectively the Cray, GNU 
-or Intel compiler via the compiler wrappers `cc` (C) `CC` (C++) and `ftn` (Fortran). 
-You can only have one `PrgEnv` module loaded at a time: for instance if we load 
-`PrgEnv-gnu` without first unloading `PrgEnv-intel`
-we get the following message. 
 
 ```console
-    $ module load PrgEnv-gnu
-    PrgEnv-gnu/6.0.5(77):ERROR:150: Module 'PrgEnv-gnu/6.0.5' conflicts with the currently loaded module(s) 'PrgEnv-intel/6.0.5'
-    PrgEnv-gnu/6.0.5(77):ERROR:102: Tcl command execution failed: conflict PrgEnv-intel
-```
 
-To circumvent this you must swap or unload modules as follows
-
-```
-    # swap modules
-    module swap PrgEnv-intel PrgEnv-gnu
-
-    # unload + load
-    module unload PrgEnv-intel
-    module load PrgEnv-gnu
-```
 
 ## Creating a Custom Module Environment
 
