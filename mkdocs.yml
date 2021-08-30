@@ -45,7 +45,7 @@ nav:
       - GNU-Parallel: jobs/workflow/gnuparallel.md
   - Applications:
     - Applications: applications/index.md
-  - Acronyms/Glossary: help/acronyms.md
+  - Acronyms: help/acronyms.md
   - Current Known Issues: current.md
   - Help: help/index.md
 
