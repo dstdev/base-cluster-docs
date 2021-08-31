@@ -33,7 +33,7 @@ nav:
     - Running Jobs: jobs/index.md
     - Queue Policy: jobs/policy.md
     - Running Jobs on Perlmutter's GPU nodes: jobs/gpus.md
-    - Example Jobs (Cori): jobs/examples/index.md
+    - Example Jobs : jobs/examples/index.md
     - Best Practices: jobs/best-practices.md
     - Troubleshooting Slurm: jobs/troubleshooting.md
     - Monitoring: jobs/monitoring.md
@@ -45,7 +45,9 @@ nav:
       - GNU-Parallel: jobs/workflow/gnuparallel.md
   - Applications:
     - Applications: applications/index.md
-  - Acronyms: help/acronyms.md
+  - Acronyms/Glossary: 
+	-Acronyms-Glossary/acronyms.md
+	-Acronyms-Glossary/Glossary.md
   - Current Known Issues: current.md
   - Help: help/index.md
 
