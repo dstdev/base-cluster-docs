@@ -70,7 +70,6 @@ then a default may be applied.
 
 !!! tip
     It is good practice to always set the account option
-    (`--account=<NERSC Project>`).
 
 
 The full list of directives is documented in the man pages for the
@@ -208,12 +207,6 @@ scripts](examples/index.md) for users to peruse for inspiration.
 If you do not specify the following options in your script, defaults
 will be assigned.
 
-| Option     | Cori         | Perlmutter   |
-|------------|--------------|--------------|
-| nodes      | 1            | 1            |
-| time       | 10 minutes   | 5 minutes    |
-| qos        | debug        | regular      |
-| account    | set in Iris  | set in Iris  |
 
 !!! alert "There is no default architecture"
     Jobs not specifying the "constraint" will be rejected.
@@ -231,11 +224,6 @@ If there are issues with job submission check:
 
 Some memory on compute nodes is reserved for the operating system.
 
-| Node Type      | Total Memory (GB)  | Available to Applications (GB) |
-|----------------|--------------------|---------------------------|
-| Perlmutter GPU | CPU: 256, GPU: 160 | TBA                       |
-| Cori Haswell   | 128                | 118                       |
-| Cori KNL       | 96                 | 87                        |
 
 ## Quota Enforcement
 
@@ -254,13 +242,9 @@ archive data as needed.
 
 * [Interactive](interactive.md) jobs
 * [I/O Performance](../performance/io/index.md)
-* [Example jobs (Cori)](examples/index.md)
 * [Monitoring](monitoring.md) jobs
 * [Best Practices](best-practices.md) for jobs
 * [Troubleshooting Slurm](troubleshooting.md)
 
 ## Additional Constraints
 
-Currently it is not possible for users to run a single job which
-includes multiple types of nodes (e.g., Cori Haswell and KNL nodes
-in a single job).

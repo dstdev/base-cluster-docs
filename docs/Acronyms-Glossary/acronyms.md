@@ -28,17 +28,13 @@
 | MFA   | Multi-Factor Authentication |
 | MIG   | (Nvidia GPU's) Multi-Instance GPU |
 | MKL   | (Intel) [Math Kernel Library](https://software.intel.com/en-us/mkl) |
-| MOTD  | [Message of the Day](https://www.nersc.gov/live-status/motd/) |
 | MOM   | Machine Oriented Mini-server |
 | MPI   | [Message Passing Interface](https://www.mpi-forum.org) |
 | MPMD  | Multiple Programs, Multiple Data |
 | MPP   | Massively Parallel Processor |
 | MTBF  | Mean Time Between Failures |
 | NCN   | Non-Compute Node |
-| NERSC | [National Energy Research Scientific Computing](https://www.nersc.gov) |
-| NGF   | NERSC Global File system |
 | NIC   | Network Interface Card or Network Interface Controller |
-| NUG   | [NERSC User Group](https://www.nersc.gov/users/NUG/) |
 | NUMA  | Non-Uniform Memory Access |
 | OS    | Operating System |
 | OTP   | One-time Password |

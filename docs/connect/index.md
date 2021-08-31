@@ -27,7 +27,7 @@ secure network services over an insecure network.  The protocol is defined by
 implementations of SSH is [OpenSSH](https://www.openssh.com).
 
 
-On a system with an SSH client installed, one can log into the Cori login nodes
+On a system with an SSH client installed, one can log into the Aries login nodes
 by running the following command:
 
 ```console
@@ -35,15 +35,11 @@ by running the following command:
 
 If the user has generated a temporary SSH key using
 [`sshproxy`](../mfa/#sshproxy), then this command will connect the user to one
-of Cori's login nodes. If the user has not generated a temporary SSH key, then
+of Aries login nodes. If the user has not generated a temporary SSH key, then
 SSH will challenge the user for their [Iris](../../iris/iris-for-users)
 password as well as their [one-time password
 ## Password-less logins and transfers
 
-Consult the documentation on using the
-[SSH Proxy](../mfa/#mfa-for-ssh-keys-sshproxy) service in the MFA
-documentation section for ways to connect to NERSC systems without reentering
-your password and one-time password.
 
 ## SSH certificate authority
 
@@ -115,12 +111,12 @@ It is also possible that a host key has just been changed.
 ```
 
 Ensure that your `~/.ssh/known_hosts` file contains the correct entries for
-Cori and confirm the fingerprints using the posted fingerprints above.  Add the
+Aries and confirm the fingerprints using the posted fingerprints above.  Add the
 [certificate authority](#ssh-certificate-authority) line to your known_hosts
 file if you version of ssh supports SSH certificates.
 
 1. Open `~/.ssh/known_hosts`
-1. Remove any lines referring Cori and save the file
+1. Remove any lines referring to Aries and save the file
 1. Paste the host key entries from above or retry connecting to the host and
    accept the new host key after verify that you have the correct "fingerprint"
    from the above list.

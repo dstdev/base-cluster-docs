@@ -29,24 +29,12 @@
         
 ??? "What is a Slurm multi-cluster mode?"
     
-     At Cori, we have configured Slurm in [Multi-Cluster](https://slurm.schedmd.com/multi_cluster.html)
-    mode with two clusters `cori` and `escori`. Each Slurm cluster is independent,  with its own 
-    Slurm environment (partitions/qos) and job accounting.
-    
-    When you login to Cori, your default cluster is `cori`, and you can run jobs to Slurm cluster
-    via `sbatch --clusters=cori` or `sbatch --clusters=escori`. 
-        
-    In order to submit jobs to `escori` Slurm cluster you need to load the
-    following module:
     
     ```
     module load esslurm
     ```
     
     !!! note
-        `module load esslurm` will make `escori` your default Slurm
-        cluster. If you want to revert back to `cori` unload the module
-        (`module unload esslurm`).
     
     The default Slurm binaries are in `/usr/bin` but we place
     Slurm binaries for esslurm (i.e., `sbatch`, `squeue`, `sacct`, `srun`) in
@@ -54,16 +42,13 @@
     following:
     
     ```
-    cori$ which sbatch
-    /opt/esslurm/bin/sbatch
     ```
 
 ??? "How do I monitor a job that I submitted?"  
 
-    If you want to monitor your jobs please use `squeue`, or `sacct` and see [monitoring](monitoring.md) page
-    for more details. Please note that the jobID's are unique to the Slurm cluster (`cori`, `escori`), for instance if 
-    you submit a job to `xfer` queue your job will be routed to the `escori` Slurm cluster and you will need to 
-    use `squeue --clusters=escori` or `sacct --clusters=escori` to monitor the job. 
+
+
+
                 
 ??? "Unable to submit jobs to premium queue?"
 
@@ -78,7 +63,6 @@
     project limit was 50,000. We can check this using `iris` command.
     
     ```console
-    cori$ iris 
     Project      Used(user)    Allocated(user)       Used    Allocated
     ---------  ------------  -----------------  ---------  -----------
     m0001***      750000.0          50000.0     750000.0    50000.0
@@ -150,8 +134,10 @@ and their possible causes are shown in the following table.
 
     Possible causes/remedies:
 
-    This error could happen if a user has no active NERSC project on
-    Cori.  Please make sure your NERSC account is renewed with an
+    This error could happen if a user has no active SLU project on
+    Aries  Please make sure your SLU account is renewed with an
+    active allocation.
+    .  Please make sure your SLU account is renewed with an
     active allocation.
 
 -   Error message:
@@ -185,10 +171,6 @@ and their possible causes are shown in the following table.
 -   Error message:
 
     ```
-    cori$ salloc ... --qos=interactive
-    salloc: Pending job allocation XXXXXXXX
-    salloc: job XXXXXXXX queued and waiting for resources
-    salloc: error: Unable to allocate resources: Connection timed out
     ```
 
     Possible causes/remedies:
@@ -196,9 +178,11 @@ and their possible causes are shown in the following table.
     The interactive job could not start within 6 minutes, and,
     therefore, was cancelled. It is because either the number of
     available nodes left from all the reserved interactive nodes or
-    out of the 64 node limit per NERSC project was less than what you
-    requested. See our [Cori "interactive" QOS](interactive.md) policy page for more
-    details.
+    out of the 64 node limit per     This error could happen if a user has no active SLU project on
+    Aries. Please make sure your SLU  account is renewed with an
+    active allocation.
+    Please make sure your SLU account is renewed with an
+    active allocation.
 
 -   Error message:
 

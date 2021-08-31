@@ -75,8 +75,7 @@ environment needed for the batch job in a single file.
 
 ## I/O Performance
 
-Cori has dedicated large, local, parallel scratch file systems.  The
-scratch file systems are intended for temporary uses such as storage
+  The scratch file systems are intended for temporary uses such as storage
 of checkpoints or application input and output. Data and I/O intensive
 applications should use the local scratch (or Burst Buffer)
 file systems.
@@ -85,9 +84,10 @@ These systems should be referenced with the environment variable
 `$SCRATCH`.
 
 !!! tip
-    On Cori
-    the [Burst Buffer](examples/index.md#burst-buffer-test) offers the
-    best I/O performance.
+
+
+
+
 
 !!! warning
     Scratch file systems are not backed up and old files are
@@ -112,15 +112,6 @@ Or
 #SBATCH --licenses=SCRATCH,cfs
 ```
 
-### Available Licenses on Cori
-
-* `cscratch1` (or `SCRATCH`)
-* `cfs`
-* `projecta`
-* `projectb`
-* `dna`
-* `seqfs`
-* `cvmfs`
 
 ## Large Jobs
 
@@ -163,12 +154,9 @@ permission denied errors if trying to overwrite someone else's files.
 
 For jobs which are sensitive to interconnect (MPI) performance and
 utilize less than ~300 nodes it is possible to request that all nodes
-are in a single Aries dragonfly group. The maximum number of nodes in
-a switch on Cori is 384, but only some switches are fully populated
-with compute nodes as some connections are reserved for other node
-types (system, I/O, etc).
+are in a single Aries dragonfly group. 
 
-Slurm has a concept of "switches" which on Cori are configured to map
+Slurm has a concept of "switches" which on Aries are configured to map
 to Aries electrical groups. Since this places an additional constraint
 on the scheduler a maximum time to wait for the requested topology can
 be specified.
@@ -211,26 +199,14 @@ wrapper script for `srun`.
 
 ## Process Placement
 
-Several mechanisms exist to control process placement on NERSC's Cray
-systems. Application performance can depend strongly on placement
-depending on the communication pattern and other computational
-characteristics.
-
-Examples are run on Cori.
 
 ### Default
 
-```console
-user@nid01041:~> srun -n 8 -c 2 check-mpi.intel.cori|sort -nk 4
-Hello from rank 0, on nid01041. (core affinity = 0-63)
-Hello from rank 1, on nid01041. (core affinity = 0-63)
-Hello from rank 2, on nid01111. (core affinity = 0-63)
-Hello from rank 3, on nid01111. (core affinity = 0-63)
-Hello from rank 4, on nid01118. (core affinity = 0-63)
-Hello from rank 5, on nid01118. (core affinity = 0-63)
-Hello from rank 6, on nid01282. (core affinity = 0-63)
-Hello from rank 7, on nid01282. (core affinity = 0-63)
-```
+
+
+
+
+
 
 ### `MPICH_RANK_REORDER_METHOD`
 
@@ -239,15 +215,9 @@ specify other types of MPI task placement. For example, setting it to
 0 results in a round-robin placement:
 
 ```console
-user@nid01041:~> MPICH_RANK_REORDER_METHOD=0 srun -n 8 -c 2 check-mpi.intel.cori|sort -nk 4
-Hello from rank 0, on nid01041. (core affinity = 0-63)
-Hello from rank 1, on nid01111. (core affinity = 0-63)
-Hello from rank 2, on nid01118. (core affinity = 0-63)
-Hello from rank 3, on nid01282. (core affinity = 0-63)
-Hello from rank 4, on nid01041. (core affinity = 0-63)
-Hello from rank 5, on nid01111. (core affinity = 0-63)
-Hello from rank 6, on nid01118. (core affinity = 0-63)
-Hello from rank 7, on nid01282. (core affinity = 0-63)
+
+
+
 ```
 
 There are other modes available with the `MPICH_RANK_REORDER_METHOD`
@@ -263,24 +233,9 @@ communication, e.g., stencil-based applications on structured grids,
 Cray provides a tool in the `perftools-base` module called
 `grid_order` which can generate a `MPICH_RANK_ORDER` file automatically
 by taking as parameters the dimensions of the grid, core count,
-etc. For example, to place MPI tasks in row-major order on a Cartesian
-grid of size $(4, 4, 4)$, using 32 tasks per node on Cori:
+etc. 
 
 ```
-cori$ module load perftools-base
-cori$ grid_order -R -c 32 -g 4,4,4
-# grid_order -R -Z -c 32 -g 4,4,4
-# Region 3: 0,0,1 (0..63)
-0,1,2,3,16,17,18,19,32,33,34,35,48,49,50,51,4,5,6,7,20,21,22,23,36,37,38,39,52,53,54,55
-8,9,10,11,24,25,26,27,40,41,42,43,56,57,58,59,12,13,14,15,28,29,30,31,44,45,46,47,60,61,62,63
-```
-
-One can then save this output to a file called `MPICH_RANK_ORDER` and
-then set `MPICH_RANK_REORDER_METHOD=3` before running the job, which
-tells Cray MPI to read the `MPICH_RANK_ORDER` file to set the MPI task
-placement. For more information, please see the man page `man
-grid_order` (available when the `perftools-base` module is loaded) on
-Cori.
 
 ## Hugepages
 
@@ -303,11 +258,8 @@ cc -o mycode.exe mycode.c
 
 And also load the same hugepages module at runtime.
 
-The craype-hugepages2M module is loaded by deafult on Cori.
-Users could unload the craype-hugepages2M module explicitly to disable the hugepages usage.
 
 !!! note
-    The craype-hugepages2M module is loaded by default since the Cori CLE7 upgrade on July 30, 2019.
 
 Due to the hugepages memory fragmentation issue, applications may get
 "Cannot allocate memory" warnings or errors when there are not enough
@@ -317,9 +269,6 @@ hugepages on the compute node, such as:
 libhugetlbfs [nid000xx:xxxxx]: WARNING: New heap segment map at 0x10000000 failed: Cannot allocate memory
 ```
 
-The verbosity level of libhugetlbfs HUGETLB_VERBOSE is set to 0 on
-Cori by default to surpress debugging messages.  Users can adjust this
-value to obtain more info.
 
 ### When to Use Huge Pages
 
@@ -354,14 +303,13 @@ value to obtain more info.
 
 ## Task Packing
 
-Users requiring large numbers of single-task jobs have several options at
-NERSC. The options include:
 
-* Submitting jobs to the [shared QOS](examples/index.md#shared),
-* Using a [workflow tool](workflow-tools.md) to combine the tasks into one
-  larger job,
-* Using [job arrays](examples/index.md#job-arrays) to submit many individual
-  jobs which look very similar.
+
+
+
+
+
+
 
 If you have a large number of independent serial jobs (that is, the jobs do not
 have dependencies on each other), you may wish to pack the individual tasks

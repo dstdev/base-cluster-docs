@@ -11,7 +11,6 @@ of performance, permanence and available space.
 | Community       | yes       | no     | no      | repository      |
 | home            | yes       | yes    | no      | user            |
 | common          | no        | no     | no      | repository      |
-| Cori scratch    | no        | no     | yes     | user            |
 | HPSS            | no        | no     | no      | user            |
 
 !!! note
@@ -39,13 +38,9 @@ are intended for sharing data within a group of researchers.
 
 ### [Archive](archive.md) (HPSS)
 
-A high capacity tape archive intended for long term storage of
-inactive and important data. Accessible from all systems at
-NERSC. Space quotas are allocation dependent
 
 The High Performance Storage System (HPSS) is a modern, flexible,
-performance-oriented mass storage system. It has been used at NERSC
-for archival storage since 1998. HPSS is intended for long term
+performance-oriented mass storage system. HPSS is intended for long term
 storage of data that is not frequently accessed.
 
 ## Local storage

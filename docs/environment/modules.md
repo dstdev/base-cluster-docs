@@ -29,7 +29,7 @@ module ()
     Cray default module is modules/3.2.11.4 and documentation is based on this version
     
     `modules/4.1.3.1` is also available to support non-Cray modulefiles that require 
-    Modules 4.x. While most modulefiles at NERSC should work with Modules 4.x, there are
+    Modules 4.x. While most modulefiles at bright should work with Modules 4.x, there are
     some compatibility issue with PrgEnv- modules, and we don't recommend 
     `modules/4.1.3.1` for "normal" use.
 
@@ -43,9 +43,6 @@ Further reading:
  * `module help`
  * `man module`
  * `man modulefile`
- * [Online manual](http://modules.readthedocs.io) (note: some features
-   may only be available in later versions than what is installed on
-   NERSC systems)
 
 ## Module Usage
 

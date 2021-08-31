@@ -4,8 +4,6 @@
     This page is currently under active development. Check
     back soon for more content.
 
-This page details the QOS and queue usage policies.
-[Examples](examples/index.md) for each type of Cori job are available.
 
 Jobs are submitted to different queues depending on the queue
 constraints and the user's desired outcomes. Most jobs are submitted
@@ -13,9 +11,7 @@ to the "regular" queue, but a user with a particularly urgent
 scientific emergency may decide to submit to the premium queue for
 faster turnaround. Another user who does not need the results of this
 run for many weeks may elect to use the low queue to cut down on
-costs. And a user who needs fast turnaround while they are using the
-large telescope could prearrange with NERSC to use the realtime queue
-for these runs.
+costs. 
 
 These different purposes are served by what is known as "Quality of
 Service" (QOS): each queue has a different service level in terms of
@@ -35,33 +31,8 @@ discount.
 | [regular](#p-regular)         | 128          | 24             | -            | -         | -        | -          | 0                    |
 | [interactive](#p-interactive) | 4            | 4              | -            | -         | -        | -          | 0                    |
 
-### Cori Haswell
 
-| QOS                         | Max nodes        | Max time (hrs) | Submit limit | Run limit | Priority | QOS Factor       | Charge per Node-Hour |
-|-----------------------------|------------------|----------------|--------------|-----------|----------|------------------|----------------------|
-| [regular](#regular)         | 1932[^hsw-reg]   | 48             | 5000         | -         | 4        | 1                | 140                  |
-| shared[^shared]             | 0.5              | 48             | 10000        | -         | 4        | 1                | 140[^shared]         |
-| [interactive](#interactive) | 64[^interactive] | 4              | 2            | 2         | -        | 1                | 140                  |
-| [debug](#debug)             | 64               | 0.5            | 5            | 2         | 3        | 1                | 140                  |
-| [premium](#premium)         | 1772             | 48             | 5            | -         | 2        | 2 -> 4[^premium] | 280[^premium]        |
-| [flex](#flex)               | 64               | 48             | 5000         | -         | 6        | 0.5              | 70                   |
-| [overrun](#overrun)         | 1772             | 48             | 5000         | -         | 5        | 0                | 0                    |
-| xfer                        | 1 (login)        | 48             | 100          | 15        | -        | -                | 0                    |
-| bigmem                      | 1 (login)        | 72             | 100          | 1         | -        | 1                | 140                  |
-| [realtime](#realtime)       | custom           | custom         | custom       | custom    | 1        | custom           | custom               |
-| [compile](#compile)         | 1 (login)        | 24             | 5000         | 2         | -        | -                | 0                    |
 
-### Cori KNL
-
-| QOS                         | Max nodes        | Max time (hrs) | Submit limit | Run limit | Priority | QOS Factor       | Charge per Node-Hour |
-|-----------------------------|------------------|----------------|--------------|-----------|----------|------------------|----------------------|
-| [regular](#regular)         | 9489             | 48             | 5000         | -         | 4        | 1                | 80                   |
-| [interactive](#interactive) | 64[^interactive] | 4              | 2            | 2         | -        | 1                | 80                   |
-| [debug](#debug)             | 512              | 0.5            | 5            | 2         | 3        | 1                | 80                   |
-| [premium](#premium)         | 9489             | 48             | 5            | -         | 2        | 2 -> 4[^premium] | 160[^premium]        |
-| [low](#low)                 | 9489             | 48             | 5000         | -         | 5        | 0.5              | 40                   |
-| [flex](#flex)               | 256              | 48             | 5000         | -         | 6        | 0.25             | 20                   |
-| [overrun](#overrun)         | 9489             | 48             | 5000         | -         | 7        | 0                | 0                    |
 
 [^hsw-reg]:
 Batch jobs submitted to the Haswell partition requesting more than 512 nodes
@@ -92,7 +63,6 @@ can share nodes.
 
 ## Available QOSs
 
-There are many different QOSs at NERSC, each with a different purpose.
 
 ### Perlmutter
 
@@ -110,7 +80,6 @@ flags.
 A pool of 50 nodes are reserved during business hours for interactive
 use, which will be released overnight for large-scale jobs.
 
-### Cori
 
 #### Regular
 
@@ -141,9 +110,7 @@ node feature, and walltime request, etc.).
 
 The intent of the premium QOS is to allow for faster turnaround for
 unexpected scientific emergencies where results are needed right
-away. NERSC has a target of keeping premium usage at or below 10
-percent of all usage. Premium should be used infrequently and with
-care.
+away. 
 
 !!! Warning
     The charge factor for premium will
@@ -228,8 +195,7 @@ without these flags will be automatically rejected by the batch system.
 
 The `compile` QOS is intended for workflows that regularly compile codes from
 source such as the compiling stage in DevOps models that leverage continuous
-integration. Jobs are run on one Cori Haswell node and there is no charge for
-using the `compile` QOS.
+integration. 
 
 ## Charging
 
@@ -237,8 +203,8 @@ Jobs charges are a function of the number of nodes and the amount of
 time used by the job, as well as the job's QOS factor and the machine
 charge factor. For more information on how jobs are charged please see
 the [Computer Usage
-Charging](../../policies/charging-policy/#computer-usage-charging)
-section of the NERSC usage charging policy.
+
+
 
 
 !!! note
@@ -251,15 +217,9 @@ charge.
 
 ### Discounts
 
- * **big job discount** The "regular" QOS charges on Cori KNL are
-   discounted by 50% if a job uses 1024 or more nodes. This discount
-   is only available in the regular qos for Cori KNL.
 
 In addition several qos's offer reduced charging rates:
 
- * The "low" QOS (available on Cori KNL only) is charged 50% as
-   compared to the "regular" QOS, but no extra large job discount
-   applies.
 
  * The "flex" QOS is charged 50% as compared to the "regular" QOS on Haswell 
    and 25% as compared to the "regular" qos on KNL.

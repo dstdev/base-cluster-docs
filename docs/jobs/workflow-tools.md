@@ -12,12 +12,12 @@ automating these steps.
 [GNU Parallel](workflow/gnuparallel.md) is a shell tool for executing commands
 in parallel and in sequence on a single node. Parallel is a very usable and
 effective tool for running High Throughput Computing workloads without data
-dependencies at NERSC. Following simple Slurm command patterns allows parallel
+dependencies at SLU. Following simple Slurm command patterns allows parallel
 to scale up to running tasks in job allocations with multiple nodes.
 
 ## TaskFarmer
 
-[TaskFarmer](workflow/taskfarmer.md) is a utility developed at NERSC to
+[TaskFarmer](workflow/taskfarmer.md) is a utility developed at SLU to
 distribute single-node tasks across a set of compute nodes - these can be
 single- or multi-core tasks. TaskFarmer tracks which tasks have completed
 successfully, and allows straightforward re-submission of failed or un-run jobs
@@ -56,13 +56,6 @@ Data and tasks are serialized and communicated bidirectional with worker
 process using ZeroMQ sockets. The workers are organized in worker pools and 
 launched on the compute infrastructure. 
 
-## Snakemake
-
-[Snakemake](workflow/snakemake.md) is a tool that combines the power of Python
-with shell scripting. It allows users to define workflows with complex
-dependencies; users can easily visualize the job dependency graph and track
-which tasks have been completed and are still pending. Snakemake works best
-at NERSC for single node jobs.
 
 ## Other Workflow Tools
 

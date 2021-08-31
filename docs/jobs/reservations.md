@@ -23,19 +23,14 @@ time spent running jobs.
 To reserve compute nodes, a request must be sent in with *at least 1 week*
 notice.  Please ask for the least amount of resources you need
 and try to schedule reservations so as to minimize impact on other
-users. It is also recommended that reservations be scheduled to start
-during NERSC business hours to ensure availability of staff in case
-any issues arise.
+users. 
 
-[Reservation Request Form](https://nersc.servicenowservices.com/catalog_home.do?sysparm_view=catalog_default)
 
 ## Cancellations
 
 Cancellation of a reservation must be done with a minimum of 4 days
 notice. If you do not receive a confirmation that your
 cancellation was received and it is less than 4 days until your
-start time you *must* contact NERSC operations via 1-800-666-3772 (or
-1-510-486-8600) menu option 1 to confirm.
 
 ## Viewing reservations
 
@@ -112,11 +107,6 @@ on the system, to run jobs in the reservation, you can use the
 `--reservation` option on the command line:
 
 ```
-nersc$ sbatch --reservation=<reservation_name>
-```
-
-```
-nersc$ salloc --reservation=<reservation_name>
 ```
 
 or add `#SBATCH --reservation=<reservation_name>` to your job script.
@@ -145,7 +135,6 @@ It is recommended to submit a "test" job at the start of your
 reservation to reboot the nodes.
 
 ```shell
-	cori$ sbatch -C knl,quad,flat --nodes=<size_of_reservation> --qos=regular --reservation=<reservation_name> --wrap="hostname"
 ```
 
 !!! danger
@@ -162,7 +151,3 @@ than scheduled:
 setting that will terminate the reservation a few minutes after 
 all jobs in the reservation queue have completed.
 
-* If your reservation does not have the above setting and you 
-complete all planned computations before the reservation ends, 
-please call NERSC operations at 1-800-666-3772 (or
-1-510-486-8600) menu option 1 to cancel the reservation.
