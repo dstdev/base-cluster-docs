@@ -46,8 +46,8 @@ nav:
   - Applications:
     - Applications: applications/index.md
   - Acronyms/Glossary: 
-	-Acronyms-Glossary/acronyms.md
-	-Acronyms-Glossary/Glossary.md
+    -Acronyms-Glossary/acronyms.md
+    -Acronyms-Glossary/Glossary.md
   - Current Known Issues: current.md
   - Help: help/index.md
 
